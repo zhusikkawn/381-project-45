@@ -30,10 +30,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Session
 app.use(
     session({
-        secret: 'yourSecretKey', // 替換成你的密鑰
+        secret: 'yourSecretKey',
         resave: false,
         saveUninitialized: false,
         store: MongoStore.create({ mongoUrl })
@@ -44,7 +43,6 @@ app.use(
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// multer
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, 'public/uploads/');
