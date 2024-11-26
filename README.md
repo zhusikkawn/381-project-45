@@ -1,3 +1,14 @@
+# Recipe Book Application
+
+## Project Information
+The Recipe Book Application is a web-based platform that allows users to register, log in, and manage recipes. The app features dynamic forms for login and registration with validation to ensure a smooth user experience.
+
+### This project demonstrates:
+- **User Authentication**: Secure registration and login functionality with form validation.
+- **Dynamic User Interface**: Responsive forms and pages built for seamless interaction.
+- **CRUD Operations**: Create, Read, Update, and Delete recipes using RESTful APIs.
+- **Database Integration**: Stores user and recipe data securely in a database.
+
 #Group Information
 
 - **Group No:** 381project45
@@ -95,9 +106,22 @@
 ## Operation Guide
 ### Login/Logout Pages
 - **Valid Login Information**:
-  - Username: `testuser`
-  - Password: `password123`
+  - Username: `zz`
+  - Password: `zz`
 - **Steps**:
   1. Navigate to `/login`.
   2. Enter valid credentials and submit.
   3. Use the logout button to end the session.
+ 
+### CRUD Web Pages
+- **Create**: Use the "Create New Recipe" button on the homepage to add a new recipe.
+- **Read**: View existing recipes and photos on the homepage.
+- **Update**: Click the "Edit" button next to a recipe, modify the details, and save.
+- **Delete**: Use the "Delete" button to remove a recipe.
+
+### RESTful CRUD Services
+- **API Endpoints**:
+  - **Create**: `POST /api/recipes` - Adds a new recipe.
+  - **Read**: `GET /api/recipes` - Retrieves all recipes.
+  - **Update**: `PUT /api/recipes/:id` - Updates a recipe by ID.
+  - **Delete**: `DELETE /api/recipes/:id` - Deletes a recipe by ID.
