@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipe Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="recipe/mainPage2.css" rel="stylesheet">
+    <script src="/js/home.js"></script>
+    
+</head>
+<body>
+    <nav class="navbar">
+    <!-- 左側：標題 -->
+    <div class="nav-left">
+        <h1><i class="fas fa-utensils"></i> Recipe Dashboard</h1>
+    </div>
+
+    
+    <div class="nav-center">
+        <div class="nav-links">
+            <a href="/home" class="nav-link"><i class="fas fa-list"></i> All Recipes</a>
+            <a href="/myRecipe" class="nav-link"><i class="fas fa-book"></i> My Recipes</a>
+        </div>
+    </div>
+
+    <button class="toggle-mode" id="toggle-mode">
+        <div class="toggle-icon"></div>
+    </button>
+
+    
+    <div class="nav-right">
+        <form action="/search" method="get" class="search-form">
+            <input type="text" name="query" placeholder="Search recipes..." class="search-input">
+            <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
+        </form>
+        <div class="user-info">
+            <i class="fas fa-user"></i> Welcome, <%= username %>
+        </div>
+        <a href="/logout" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+</nav>
+
+
+    
+    <div class="container">
+        <h2 class="section-title">All Recipes</h2>
+        
+        <div class="recipes-grid">
+            <% recipes.forEach(recipe => { %>
+                <a href="/recipe/<%= recipe._id %>" class="recipe-card">
+                    <div class="recipe-image">
+                        <% if (recipe.image) { %>
+                            <img src="<%= recipe.image %>" alt="<%= recipe.title %>">
+                        <% } else { %>
+                            <img src="/picture/no_image.jpg" alt="No Image Available">
+                        <% } %>
+                    </div>
+                    <h3><%= recipe.title %></h3>
+                    
+                </a>
+            <% }) %>
+        </div>
+    </div>
+
+    <script>const toggleModeButton = document.getElementById('toggle-mode');
+
+        if (localStorage.getItem('darkMode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+        } else {
+        document.body.classList.remove('dark-mode');
+        }
+    
+        toggleModeButton.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+    
+        const darkModeEnabled = document.body.classList.contains('dark-mode');
+        localStorage.setItem('darkMode', darkModeEnabled ? 'enabled' : 'disabled');
+        });
+    </script>
+    
+    
+</body>
+</html>

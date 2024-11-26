@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= recipe.title %></title>
+    <link rel="stylesheet" href="/recipe/mainPage.css">
+    <link rel="stylesheet" href="/recipe/recipeDetail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <h1><i class="fas fa-utensils"></i> Recipe Dashboard</h1>
+        </div>
+        <div class="nav-center">
+            <div class="nav-links">
+                <a href="/home" class="nav-link"><i class="fas fa-list"></i> All Recipes</a>
+                <a href="/myRecipe" class="nav-link"><i class="fas fa-book"></i> My Recipes</a>
+                
+            </div>
+        </div>
+        <div class="nav-right">
+            <div class="user-info">
+                <i class="fas fa-user"></i> Welcome, <%= username || 'Guest' %>
+            </div>
+            
+            <div class="nav-buttons">
+                <a href="/logout" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="recipe-detail">
+            <a href="javascript:history.back()" class="back-btn"><i class="fas fa-arrow-left"></i> Back</a>
+            
+            <h1><%= recipe.title %></h1>
+
+            <div class="recipe-content-wrapper">
+                <% if (recipe.image) { %>
+                    <div class="detail-image">
+                        <img src="<%= recipe.image %>" alt="<%= recipe.title %>">
+                    </div>
+                <% }  else { %>
+                            <img src="/picture/no_image.jpg" alt="No Image Available">
+                        <% } %>%>
+                
+                <div class="detail-content">
+                    <section>
+                        <h2>Ingredients</h2>
+                        <p><%= recipe.ingredients %></p>
+                    </section>
+                    
+                    <section>
+                        <h2>Instructions</h2>
+                        <p><%= recipe.instructions %></p>
+                    </section>
+                </div>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+</body>
+</html> 
