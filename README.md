@@ -7,4 +7,3 @@ This project demonstrates:
 
 Basic CRUD operations.
 Secure user authentication.
-Responsive UI with animation
