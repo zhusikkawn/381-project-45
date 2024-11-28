@@ -220,4 +220,70 @@ The Recipe Book Application is a web-based platform that allows users to registe
             </div>
 
             <div class="nav-buttons">
-                <a href="/logout" class="logout-btn"><i class="fas fa-s
+                <a href="/logout" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="recipe-detail">
+            <a href="javascript:history.back()" class="back-btn"><i class="fas fa-arrow-left"></i> Back</a>
+
+            <h1>Classic Pancakes ww</h1>
+
+            <div class="recipe-content-wrapper">
+
+                    <div class="detail-image">
+                        <img src="/uploads/1732639378685.jpg" alt="Classic Pancakes ww">
+                    </div>
+
+
+                <div class="detail-content">
+                    <section>
+                        <h2>Ingredients</h2>
+                        <p>1 cup all-purpose flour
+    2 tablespoons sugar
+    1 teaspoon baking powder  www
+    1/2 teaspoon baking soda
+    1/4 teaspoon salt
+    3/4 cup milk
+    1 large egg
+    2 tablespoons melted butter
+    1 teaspoon vanilla extract</p>
+                    </section>
+
+                    <section>
+                        <h2>Instructions</h2>
+                        <p>In a bowl, whisk together flour, sugar, baking powder, baking soda, and salt.
+    In another bowl, mix milk, egg, melted butter, and vanilla.
+    Combine wet and dry ingredients until smooth.
+    Heat a non-stick skillet over medium heat, grease lightly, and pour 1/4 cup batter for each pancake. ww
+    Cook until bubbles form, flip, and cook the other side until golden brown.
+    Serve with syrup, butter, or your favorite toppings.</p>
+                        </section>
+                    </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    </body>
+
+    ```
+    **Delete**:
+    ```bash
+    curl -X GET http://localhost:8099/recipes/delete/6745f9fb0284a8506b4ea9a6 \
+    -b cookies.txt
+    ```
+    **Response:**
+    ```
+    Found. Redirecting to /home Delete recipe and return to the hom.
+
+    ```
+    ## Notes
+  - Replace `<token>` with the authentication token obtained from login.
+  - Replace placeholders like `{id}` or `https://yourserver.com` with actual values during testing.
+  - Ensure your server is running and accessible online for proper testing.
+    
+    ---
