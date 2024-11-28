@@ -17,12 +17,101 @@ The Recipe Book Application is a web-based platform that allows users to registe
   - TAM Ho Tin (SID: 13846370)
 
 ## Project File Introduction
-@@ -95,9 +105,181 @@
+
+### `server.js`
+- **Purpose**: Acts as the main server file, managing all backend logic and connecting to the database.
+- **Functionalities**:
+  - Handles routing for authentication and recipe management.
+  - Provides API endpoints for CRUD operations.
+  - Ensures data validation and error handling.
+
+### `package.json`
+- **Purpose**: Manages project dependencies and scripts.
+- **Key Dependencies**:
+  - `express`: For routing and server functionality.
+  - `mongoose`: For database modeling and interaction.
+  - `bcrypt`: For password hashing.
+  - `jsonwebtoken`: For authentication tokens.
+  - `ejs`: For rendering views.
+- **Scripts**:
+  - `npm start`: Starts the application server.
+
+
+  ```json
+  {
+  "name": "recipe-book",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "connect-mongo": "^4.6.0",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.10",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "mongoose": "^8.8.1",
+    "multer": "^1.4.5-lts.1"
+  }
+  }
+
+
+### `public` (Folder)
+- **Purpose**: Contains static assets like CSS, JavaScript, and images to support the frontend.
+- **Key Files**:
+  - `reipe/css`: Defines the visual style of the application.
+  - `myRecipe.js`: Client-side script to enhance interactivity.
+ 
+   ```
+   
+  ├── css\login\style.css
+  ├── js
+  ├── picture
+  └── recipe
+  └── uploads
+   
+  ```
+
+
+### `views` (Folder)
+- **Purpose**: Contains EJS templates for the user interface.
+- **Key Files**:
+  - `home.ejs`: Displays the list of recipes.
+  - `login.ejs`: Provides the login form.
+  - `login.ejs`: Allows users to create an account.
+  - `myRecipe.ejs`: Form for adding or editing recipes.
+ 
+   ```
+   
+  ├── error.ejs
+  ├── home.ejs
+  ├── login.ejs
+  └── myRecipe.ejs
+  └── recipe-detail.ejs
+  └── searchResults.ejs
+   
+  ```
+
+### `models` (Folder)
+- **Purpose**: Contains database schemas and models for the application.
+- **Key Files**:
+  - `userModel.js`: Defines the schema for user accounts.
+  - `recipeModel.js`: Defines the schema for recipe data.
+
+   ```
+  ├── userModel.js
+  ├── recipeModel.js
+
+  ```
+---
+
 ## Operation Guide
 ### Login/Logout Pages
 - **Valid Login Information**:
-  - Username: `testuser`
-  - Password: `password123`
   - Username: `zz`
   - Password: `zz`
 - **Steps**:
@@ -131,69 +220,4 @@ The Recipe Book Application is a web-based platform that allows users to registe
             </div>
 
             <div class="nav-buttons">
-                <a href="/logout" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container">
-        <div class="recipe-detail">
-            <a href="javascript:history.back()" class="back-btn"><i class="fas fa-arrow-left"></i> Back</a>
-
-            <h1>Classic Pancakes ww</h1>
-
-            <div class="recipe-content-wrapper">
-
-                    <div class="detail-image">
-                        <img src="/uploads/1732639378685.jpg" alt="Classic Pancakes ww">
-                    </div>
-
-
-                <div class="detail-content">
-                    <section>
-                        <h2>Ingredients</h2>
-                        <p>1 cup all-purpose flour
-    2 tablespoons sugar
-    1 teaspoon baking powder  www
-    1/2 teaspoon baking soda
-    1/4 teaspoon salt
-    3/4 cup milk
-    1 large egg
-    2 tablespoons melted butter
-    1 teaspoon vanilla extract</p>
-                    </section>
-
-                    <section>
-                        <h2>Instructions</h2>
-                        <p>In a bowl, whisk together flour, sugar, baking powder, baking soda, and salt.
-    In another bowl, mix milk, egg, melted butter, and vanilla.
-    Combine wet and dry ingredients until smooth.
-    Heat a non-stick skillet over medium heat, grease lightly, and pour 1/4 cup batter for each pancake. ww
-    Cook until bubbles form, flip, and cook the other side until golden brown.
-    Serve with syrup, butter, or your favorite toppings.</p>
-                        </section>
-                    </div>
-
-            </div>
-
-        </div>
-
-    </div>
-    </body>
-
-    ```
-    **Delete**:
-    ```bash
-    curl -X GET http://localhost:8099/recipes/delete/6745f9fb0284a8506b4ea9a6 \
-    -b cookies.txt
-    ```
-    **Response:**
-    ```
-    Found. Redirecting to /home Delete recipe and return to the hom.
-
-    ```
-    ## Notes
-  - Replace `<token>` with the authentication token obtained from login.
-  - Replace placeholders like `{id}` or `https://yourserver.com` with actual values during testing.
-  - Ensure your server is running and accessible online for proper testing.
-    ---
+                <a href="/logout" class="logout-btn"><i class="fas fa-s
